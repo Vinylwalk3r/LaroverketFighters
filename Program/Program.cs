@@ -8,6 +8,8 @@ namespace Program
 {
     class Program
     {
+        static Enemy enemy = new Enemy();
+
         static Random randomness = new Random();
         static int playerHP = randomness.Next(10, 200);
 
@@ -24,7 +26,7 @@ namespace Program
 
 
             // Game Loop
-            while (playerHP > 0 && enemyHP > 0)
+            while (playerHP > 0 && enemy.hp > 0)
             {
                 Console.Clear();
 
@@ -74,7 +76,7 @@ namespace Program
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("\nPlayer Health: " + playerHP);
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Enemy Health: " + enem.hp);
+            Console.WriteLine("Enemy Health: " + enemy.hp);
         }
 
         static void Attack()
@@ -97,7 +99,7 @@ namespace Program
             {
                 //Enemy Attacks
                 playerHP -= enemy.dmg;
-                Console.WriteLine("Enemy attacked for " + enemyDmg);
+                Console.WriteLine("Enemy attacked for " + enemy.dmg);
             }
             else
             {
